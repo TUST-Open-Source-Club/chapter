@@ -5,7 +5,7 @@ on:
 jobs:
     build-and-release:
         runs-on: ubuntu-latest
-        if: contains(${{ github.ref }}, {-prerelease}) || contains(${{ github.ref }}, {-release}) 
+        if: contains(${{ github.ref }}, refs)
         steps:
             - uses: actions/checkout@v2
             - uses: docker://ghcr.io/qjoly/xelatex:latest
