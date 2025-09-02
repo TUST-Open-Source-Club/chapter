@@ -7,8 +7,6 @@ jobs:
         runs-on: ubuntu-latest
         if: contains(${{ github.ref }}, {-prerelease}) || contains(${{ github.ref }}, {-release}) 
         steps:
-            - name: Clone
-              run: git clone https://github.com/TUST-Open-Source-Club/chapter && cd chapter
             - uses: actions/checkout@v2
             - uses: docker://ghcr.io/qjoly/xelatex:latest
               with:
