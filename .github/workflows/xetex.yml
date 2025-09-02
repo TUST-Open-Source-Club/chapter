@@ -5,7 +5,7 @@ on:
 jobs:
     build-and-release:
         runs-on: ubuntu-latest
-        if: contains(${{ github.ref }}, -prerelease) || contains(${{ github.ref }}, release) 
+        if: contains(${{ github.ref }}, {-prerelease}) || contains(${{ github.ref }}, {-release}) 
         steps:
             - name: Install TexLive
               run: sudo apt-get update && sudo apt-get install texlive-full

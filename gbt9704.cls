@@ -29,7 +29,6 @@
 }
 \renewcommand{\baselinestretch}{1.5} 
 \ProvidesClass{gbt9704}[2025/08/20 Authorities Documents LaTeX Template with GB/T 9704]
-\setCJKmainfont{仿宋}
 \geometry{a4paper,left=28mm, right=26mm, top=37mm, bottom=35mm, footskip=7mm}
 \renewcommand{\maketitle}{
     \begin{center}
@@ -41,5 +40,6 @@
 \AtBeginDocument{
     \zihao{3}
     \ziju{0.001}
+    \fangsong
     \pagestyle{gbt9704}
 }
