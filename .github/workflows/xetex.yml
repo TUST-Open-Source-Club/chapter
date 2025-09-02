@@ -16,7 +16,7 @@ jobs:
               uses: actions/create-release@v1
               if: contains(${{ github.ref }}, -prerelease)
               env:
-                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                GITHUB_TOKEN: ${{ secrets.SUNYU_TOKEN }}
               with:
                 tag_name: ${{ github.ref }}
                 release_name: Release ${{ github.ref }}
@@ -27,7 +27,7 @@ jobs:
               uses: actions/create-release@v1
               if: contains(${{ github.ref }}, -release)
               env:
-                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                GITHUB_TOKEN: ${{ secrets.SUNYU_TOKEN }}
               with:
                 tag_name: ${{ github.ref }}
                 release_name: Release ${{ github.ref }}
@@ -37,7 +37,7 @@ jobs:
             - name: Upload Release Asset
               uses: actions/upload-release-asset@v1
               env:
-                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                GITHUB_TOKEN: ${{ secrets.SUNYU_TOKEN }}
               with:
                 upload_url: ${{ steps.create_release.outputs.upload_url }}
                 asset_path: ./Chapter.pdf
