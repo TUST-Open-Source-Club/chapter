@@ -24,3 +24,5 @@ jobs:
                 # with permissions to create releases in the other repo
                 token: ${{ secrets.GITHUB_TOKEN }}
                 files: Chapter.pdf
+                prerelease: true
+                name: 20250901
