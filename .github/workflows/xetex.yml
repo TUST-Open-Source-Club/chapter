@@ -1,11 +1,11 @@
 on: 
     push:
-        branches:
-            - main
+        tags:
+            - **release**
 jobs:
     build-and-release:
         runs-on: ubuntu-latest
-        if: contains(${{ github.ref }}, refs)
+        if: contains(${{ github.ref }}, tag)
         steps:
             - uses: actions/checkout@v2
             - uses: docker://ghcr.io/qjoly/xelatex:latest
