@@ -15,33 +15,13 @@ jobs:
               with:
                 args: |
                   Chapter.tex
-            - name: Create Release
-              uses: actions/create-release@v1
-              if: contains(${{ github.ref }}, -prerelease)
-              env:
-                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            - name: Release
+              uses: softprops/action-gh-release@v2
+              if: github.ref_type == 'tag'
               with:
-                tag_name: ${{ github.ref }}
-                release_name: Release ${{ github.ref }}
-                body: Release ${{ github.ref }}
-                draft: false
-                prerelease: true
-            - name: Create Release
-              uses: actions/create-release@v1
-              if: contains(${{ github.ref }}, -release)
-              env:
-                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              with:
-                tag_name: ${{ github.ref }}
-                release_name: Release ${{ github.ref }}
-                body: Release ${{ github.ref }}
-                draft: false
-                prerelease: true
-            - name: Upload Release Asset
-              uses: actions/upload-release-asset@v1
-              env:
-                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              with:
-                upload_url: ${{ steps.create_release.outputs.upload_url }}
-                asset_path: ./Chapter.pdf
-                asset_name: 天津科技大学开放原子开源软件协会章程.pdf
+                body_path: CHANGELOG
+                repository: TUST-Open-Source-Club/chapter 
+                # note you'll typically need to create a personal access token
+                # with permissions to create releases in the other repo
+                token: ${{ secrets.GITHUB_TOKEN }}
+                files: Chapter.pdf
