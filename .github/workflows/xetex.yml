@@ -14,7 +14,6 @@ jobs:
               with:
                 args: |
                   Chapter.tex
-            - uses: actions/upload-artifact@v2
             - name: Create Release
               uses: actions/create-release@v1
               if: contains(${{ github.ref }}, -prerelease)
