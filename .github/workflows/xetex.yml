@@ -25,4 +25,4 @@ jobs:
                 token: ${{ secrets.GITHUB_TOKEN }}
                 files: Chapter.pdf
                 prerelease: false
-                name: 1.0.0
+                name: 2.0.0
