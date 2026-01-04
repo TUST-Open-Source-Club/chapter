@@ -16,7 +16,7 @@ jobs:
                 args: |
                   main.tex
             - name: rename
-              runs: |
+              run: |
                 mv main.pdf 天津科技大学开放原子开源协会章程.pdf
             - name: Release
               uses: softprops/action-gh-release@v2
