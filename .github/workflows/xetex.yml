@@ -14,7 +14,10 @@ jobs:
             - uses: docker://ghcr.io/qjoly/xelatex:latest
               with:
                 args: |
-                  Chapter.tex
+                  main.tex
+            - name: rename
+              runs: |
+                mv main.pdf 天津科技大学开放原子开源协会章程.pdf
             - name: Release
               uses: softprops/action-gh-release@v2
               if: github.ref_type == 'tag'
@@ -23,6 +26,6 @@ jobs:
                 # note you'll typically need to create a personal access token
                 # with permissions to create releases in the other repo
                 token: ${{ secrets.GITHUB_TOKEN }}
-                files: Chapter.pdf
+                files: 天津科技大学开放原子开源协会章程.pdf
                 prerelease: false
                 name: 2.0.0
